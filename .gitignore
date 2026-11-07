@@ -1,0 +1,21 @@
+# Python 缓存与本地环境
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# 本地凭据与编辑器文件
+.env
+.env.*
+!.env.example
+.DS_Store
+.idea/
+.vscode/
+
+# 本地归档产物（不要将第三方全文或个人文献库提交到仓库）
+archives/
+output/
+dist/

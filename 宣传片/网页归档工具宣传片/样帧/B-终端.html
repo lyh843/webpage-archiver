@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; }
+  body {
+    font-family: "Noto Sans CJK SC", sans-serif;
+    background: #070B0A; color: #D7E8DD; position: relative;
+  }
+  body::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .18;
+    background: repeating-linear-gradient(0deg, transparent 0 3px, rgba(124,255,178,.18) 3px 4px);
+  }
+  .glow {
+    position: absolute; width: 1100px; height: 700px; left: -260px; top: 220px;
+    background: radial-gradient(ellipse, rgba(40,255,140,.16), transparent 68%); filter: blur(20px);
+  }
+  .mono { font-family: "Noto Sans Mono CJK SC", monospace; }
+  .top { position: absolute; left: 92px; top: 70px; display: flex; gap: 16px; align-items: center; font-size: 15px; color: #6F9C83; letter-spacing: .18em; }
+  .led { width: 9px; height: 9px; background: #6CFFB0; box-shadow: 0 0 18px #6CFFB0; border-radius: 99px; }
+  h1 { position: absolute; left: 88px; top: 150px; font-size: 118px; line-height: 1.06; font-weight: 900; letter-spacing: -.04em; color: #F2FFF7; }
+  h1 span { color: #6CFFB0; text-shadow: 0 0 40px rgba(108,255,176,.35); }
+  .sub { position: absolute; left: 94px; top: 412px; font-size: 31px; color: #95B8A5; letter-spacing: .04em; }
+  .terminal {
+    position: absolute; left: 88px; bottom: 96px; width: 1120px; height: 430px;
+    background: rgba(8,16,13,.92); border: 1px solid #1E4433; box-shadow: 0 30px 90px rgba(0,0,0,.55), inset 0 0 80px rgba(20,80,50,.12);
+  }
+  .tbar { height: 44px; border-bottom: 1px solid #1E4433; display: flex; align-items: center; gap: 8px; padding: 0 18px; color: #557E69; font-size: 12px; letter-spacing: .1em; }
+  .tbar i { width: 10px; height: 10px; border-radius: 99px; background: #275843; }
+  .tbar em { font-style: normal; margin-left: 14px; }
+  .code { padding: 30px 34px; font-family: "Noto Sans Mono CJK SC", monospace; font-size: 21px; line-height: 1.72; white-space: pre; color: #A9CBB8; }
+  .code .p { color: #6CFFB0; }
+  .code .c { color: #E7C46A; }
+  .code .g { color: #5E8C74; }
+  .code .w { color: #F2FFF7; }
+  .panel {
+    position: absolute; right: 88px; top: 150px; width: 520px; height: 660px;
+    border: 1px solid #1E4433; background: rgba(8,16,13,.8); padding: 28px 30px;
+  }
+  .panel h3 { font-family: "Noto Sans Mono CJK SC", monospace; font-size: 13px; letter-spacing: .2em; color: #6CFFB0; margin-bottom: 22px; font-weight: 400; }
+  .tree { font-family: "Noto Sans Mono CJK SC", monospace; font-size: 19px; line-height: 2.15; color: #93B7A3; }
+  .tree b { color: #F2FFF7; font-weight: 400; }
+  .tree .tag { float: right; font-size: 13px; color: #557E69; padding-top: 5px; }
+  .badge { margin-top: 26px; display: inline-block; border: 1px solid #2C5C46; padding: 12px 18px; font-family: "Noto Sans Mono CJK SC", monospace; font-size: 14px; color: #6CFFB0; letter-spacing: .1em; }
+  .divider { height: 1px; background: #1E4433; margin: 22px 0; }
+</style>
+<div class="glow"></div>
+<div class="top mono"><i class="led"></i> WEBPAGE-ARCHIVER / LOCAL PIPELINE</div>
+<h1>网页，<span>归档。</span></h1>
+<div class="sub">一条命令，把在线内容变成可长期保存的本地档案。</div>
+<div class="terminal">
+  <div class="tbar mono"><i></i><i></i><i></i><em>~/projects/article — bash</em></div>
+  <div class="code"><span class="p">$</span> python3 scripts/archive_web.py <span class="c">'https://example.org/article/'</span> \
+    <span class="c">--output</span> ./archives/article
+<span class="g">→ fetching source.html</span>
+<span class="g">→ saving 18 assets (images / css / fonts)</span>
+<span class="g">→ rendering article.md</span>
+<span class="g">→ freezing formulas, writing index.html</span>
+<span class="g">→ printing A4 PDF, verifying offline assets</span>
+<span class="w">✓ status: generated-needs-manual-review</span></div>
+</div>
+<div class="panel">
+  <h3>OUTPUT / 输出档案</h3>
+  <div class="tree">
+    <b>article/</b><br>
+    ├─ article.md <span class="tag">原文</span><br>
+    ├─ article.pdf <span class="tag">A4</span><br>
+    ├─ index.html <span class="tag">离线</span><br>
+    ├─ assets/ <span class="tag">18 files</span><br>
+    ├─ metadata.csl.json<br>
+    ├─ verification.json<br>
+    └─ manifest.json
+  </div>
+  <div class="divider"></div>
+  <div class="badge">markdown · pdf · offline html</div>
+</div>
+</html>

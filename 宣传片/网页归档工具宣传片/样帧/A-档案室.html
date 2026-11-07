@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; }
+  body {
+    font-family: "Noto Serif CJK SC", serif;
+    background: #E9DFC9;
+    color: #211C16;
+    position: relative;
+  }
+  .grain {
+    position: absolute; inset: 0; opacity: .35; pointer-events: none;
+    background-image:
+      radial-gradient(rgba(60,40,20,.13) .7px, transparent .8px),
+      radial-gradient(rgba(255,255,255,.4) .6px, transparent .7px);
+    background-size: 4px 4px, 7px 7px;
+    background-position: 0 0, 2px 3px;
+  }
+  .edge { position: absolute; inset: 38px; border: 1px solid rgba(33,28,22,.35); }
+  .topline {
+    position: absolute; left: 92px; top: 76px; display: flex; gap: 20px; align-items: baseline;
+    font-family: "Noto Sans Mono CJK SC", monospace; font-size: 15px; letter-spacing: .22em; color: #6E5D47;
+  }
+  .topline b { font-family: "Noto Serif CJK SC", serif; font-size: 19px; letter-spacing: .12em; color: #211C16; }
+  h1 { position: absolute; left: 90px; top: 188px; width: 840px; font-size: 92px; line-height: 1.22; font-weight: 900; letter-spacing: -.02em; }
+  h1 em { font-style: normal; color: #B23B2E; }
+  .sub { position: absolute; left: 96px; top: 476px; width: 700px; font-size: 30px; line-height: 1.75; color: #5D4C37; }
+  .meta { position: absolute; left: 96px; bottom: 150px; display: flex; align-items: center; gap: 18px; font-family: "Noto Sans Mono CJK SC", monospace; font-size: 17px; color: #6E5D47; }
+  .meta span { border: 1px solid #B9A98E; padding: 11px 16px; }
+  .folder {
+    position: absolute; right: 92px; top: 150px; width: 760px; height: 760px;
+    background: #D8C7A6; border: 2px solid #8F7A59;
+    box-shadow: 0 30px 60px rgba(50,35,15,.22);
+  }
+  .tab {
+    position: absolute; left: -2px; top: -58px; width: 310px; height: 58px;
+    background: #D8C7A6; border: 2px solid #8F7A59; border-bottom: none;
+    display: flex; align-items: center; padding: 0 24px;
+    font-family: "Noto Sans Mono CJK SC", monospace; font-size: 15px; letter-spacing: .12em; color: #5D4C37;
+  }
+  .paper {
+    position: absolute; left: 42px; top: 46px; width: 676px; height: 668px; background: #FBF7EC;
+    border: 1px solid #C9B996; box-shadow: 0 12px 30px rgba(50,35,15,.12);
+    padding: 38px 42px;
+  }
+  .paper .rule { display: flex; justify-content: space-between; font-family: "Noto Sans Mono CJK SC", monospace; font-size: 13px; color: #8B775A; border-bottom: 1px solid #D9CBAE; padding-bottom: 14px; }
+  .browser { margin-top: 26px; border: 1px solid #C9B996; background: #fff; height: 372px; position: relative; overflow: hidden; }
+  .bar { height: 30px; background: #EDE6D6; display: flex; align-items: center; gap: 7px; padding: 0 12px; border-bottom: 1px solid #DDD2BC; }
+  .dot { width: 9px; height: 9px; border-radius: 99px; background: #C5B79D; }
+  .addr { margin-left: 10px; flex: 1; height: 14px; background: #FBF7EC; border: 1px solid #DDD2BC; font-family: "Noto Sans Mono CJK SC", monospace; font-size: 9px; color: #9A8768; padding: 1px 8px; }
+  .article { padding: 26px 30px; }
+  .article .kicker { font-family: "Noto Sans Mono CJK SC", monospace; font-size: 10px; letter-spacing: .16em; color: #B23B2E; }
+  .article .head { font-size: 25px; font-weight: 900; line-height: 1.35; margin: 8px 0 12px; }
+  .article .p { height: 7px; background: #E7DFCE; margin: 8px 0; }
+  .article .p.short { width: 62%; }
+  .figure { margin-top: 14px; height: 104px; background: linear-gradient(130deg, #D9CBAE, #EDE4D1 55%, #C9B996); border: 1px solid #D9CBAE; position: relative; }
+  .figure::after { content: "FIG. 01"; position: absolute; right: 10px; bottom: 7px; font-family: "Noto Sans Mono CJK SC", monospace; font-size: 9px; color: #8B775A; }
+  .files { position: absolute; left: 42px; bottom: 46px; width: 676px; display: flex; gap: 14px; }
+  .file { flex: 1; background: #FBF7EC; border: 1px solid #C9B996; padding: 14px 16px; font-family: "Noto Sans Mono CJK SC", monospace; font-size: 14px; color: #4C3C28; }
+  .file b { display: block; font-size: 10px; letter-spacing: .14em; color: #B23B2E; margin-bottom: 6px; }
+  .stamp {
+    position: absolute; right: 150px; bottom: 120px; width: 190px; height: 190px; border: 7px solid rgba(178,59,46,.78);
+    border-radius: 99px; color: rgba(178,59,46,.86); display: flex; align-items: center; justify-content: center;
+    font-size: 34px; font-weight: 900; letter-spacing: .16em; transform: rotate(-14deg);
+    font-family: "Noto Serif CJK SC", serif;
+  }
+  .stamp::after { content: "ARCHIVED"; position: absolute; bottom: 30px; font-family: "Noto Sans Mono CJK SC", monospace; font-size: 11px; letter-spacing: .22em; }
+</style>
+<div class="grain"></div>
+<div class="edge"></div>
+<div class="topline"><b>ETM</b> DIGITAL ARCHIVE · 001</div>
+<h1>把一篇文章，<br>完整留在<em>本地</em>。</h1>
+<div class="sub">正文、图片、公式、参考文献，<br>连同离线阅读的能力，一起保存。</div>
+<div class="meta"><span>MARKDOWN</span><span>PDF</span><span>OFFLINE HTML</span></div>
+<div class="folder">
+  <div class="tab">档案编号 · ETM-0001</div>
+  <div class="paper">
+    <div class="rule"><span>WEBPAGE-ARCHIVER</span><span>2026 / 11 / 07</span></div>
+    <div class="browser">
+      <div class="bar"><i class="dot"></i><i class="dot"></i><i class="dot"></i><div class="addr">example.org/article/</div></div>
+      <div class="article">
+        <div class="kicker">FIELD NOTES</div>
+        <div class="head">一篇值得留下的文章</div>
+        <div class="p"></div><div class="p"></div><div class="p short"></div>
+        <div class="figure"></div>
+      </div>
+    </div>
+  </div>
+  <div class="files">
+    <div class="file"><b>ARTICLE</b>article.md</div>
+    <div class="file"><b>PRINT</b>article.pdf</div>
+    <div class="file"><b>OFFLINE</b>index.html</div>
+  </div>
+  <div class="stamp">已归档</div>
+</div>
+</html>

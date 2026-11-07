@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; }
+  body {
+    font-family: "Noto Serif CJK SC", serif;
+    background: #080D13; color: #E9EEF4; position: relative;
+  }
+  .spot {
+    position: absolute; left: 50%; top: -260px; width: 1500px; height: 1100px; transform: translateX(-50%);
+    background: radial-gradient(ellipse at 50% 20%, rgba(170,205,255,.22), rgba(20,40,70,.10) 45%, transparent 68%);
+    filter: blur(10px);
+  }
+  .floor {
+    position: absolute; left: 0; right: 0; bottom: 0; height: 280px;
+    background: linear-gradient(#0A111A, #060A0F);
+    border-top: 1px solid rgba(150,190,235,.18);
+  }
+  .vignette { position: absolute; inset: 0; box-shadow: inset 0 0 260px 120px #05080C; }
+  .top { position: absolute; left: 92px; top: 72px; font-family: "Noto Sans Mono CJK SC", monospace; font-size: 14px; letter-spacing: .26em; color: #7E93AA; }
+  .top b { color: #C7D8EA; font-weight: 400; }
+  h1 { position: absolute; left: 90px; top: 168px; width: 700px; font-size: 88px; line-height: 1.28; font-weight: 900; letter-spacing: .01em; }
+  h1 em { font-style: normal; color: #D8B66A; }
+  .sub { position: absolute; left: 94px; top: 470px; width: 640px; font-size: 29px; line-height: 1.8; color: #9FB1C4; }
+  .line { position: absolute; left: 94px; top: 630px; width: 110px; height: 2px; background: #D8B66A; }
+  .case {
+    position: absolute; right: 120px; top: 150px; width: 780px; height: 690px;
+  }
+  .glass {
+    position: absolute; inset: 0; border: 1px solid rgba(180,215,255,.4);
+    background: linear-gradient(150deg, rgba(190,220,255,.10), rgba(120,160,210,.03) 40%, rgba(255,255,255,.06));
+    box-shadow: 0 40px 100px rgba(0,0,0,.55), inset 0 0 80px rgba(160,200,255,.10);
+  }
+  .glass::before { content: ""; position: absolute; left: 44px; top: 0; bottom: 0; width: 1px; background: rgba(210,235,255,.25); transform: skewX(-12deg); }
+  .artifact {
+    position: absolute; left: 96px; top: 78px; width: 588px; height: 470px; background: #F7F5EF; color: #1C232C;
+    box-shadow: 0 26px 60px rgba(0,0,0,.5); padding: 0; overflow: hidden;
+  }
+  .abar { height: 36px; background: #E7E4DA; display: flex; align-items: center; gap: 8px; padding: 0 14px; border-bottom: 1px solid #D3CFC1; }
+  .dot { width: 9px; height: 9px; border-radius: 99px; background: #B9B3A2; }
+  .aurl { margin-left: 12px; flex: 1; height: 15px; background: #F7F5EF; border: 1px solid #D3CFC1; font-family: "Noto Sans Mono CJK SC", monospace; font-size: 9px; color: #8A8270; padding: 1px 8px; }
+  .acontent { padding: 30px 36px; }
+  .akicker { font-family: "Noto Sans Mono CJK SC", monospace; font-size: 10px; letter-spacing: .2em; color: #A44A3E; }
+  .atitle { font-size: 29px; font-weight: 900; line-height: 1.35; margin: 8px 0 14px; }
+  .ap { height: 7px; background: #E4E0D4; margin: 9px 0; }
+  .ap.s { width: 66%; }
+  .afig { margin-top: 16px; height: 108px; background: linear-gradient(120deg, #D9D3C3, #EFEBDF 52%, #C9C2B0); border: 1px solid #D3CDBD; }
+  .plate {
+    position: absolute; left: 96px; bottom: 52px; width: 588px; border: 1px solid rgba(216,182,106,.55);
+    background: rgba(9,15,23,.78); padding: 18px 22px; display: flex; justify-content: space-between; align-items: center;
+  }
+  .plate b { display: block; font-family: "Noto Sans Mono CJK SC", monospace; font-size: 12px; letter-spacing: .18em; color: #D8B66A; font-weight: 400; margin-bottom: 5px; }
+  .plate span { font-size: 21px; color: #E4ECF5; letter-spacing: .05em; }
+  .plate em { font-style: normal; font-family: "Noto Sans Mono CJK SC", monospace; font-size: 11px; color: #7E93AA; text-align: right; line-height: 1.7; }
+  .caption { position: absolute; right: 122px; bottom: 68px; font-family: "Noto Sans Mono CJK SC", monospace; font-size: 12px; letter-spacing: .16em; color: #6E839A; }
+</style>
+<div class="spot"></div><div class="floor"></div>
+<div class="top"><b>ETM</b> / PERMANENT COLLECTION</div>
+<h1>把网页，<br>放进<em>保险柜</em>。</h1>
+<div class="sub">不是截图，也不是收藏夹里的一个链接。<br>是正文、图文关系与引用都能复原的完整档案。</div>
+<div class="line"></div>
+<div class="case">
+  <div class="glass"></div>
+  <div class="artifact">
+    <div class="abar"><i class="dot"></i><i class="dot"></i><i class="dot"></i><div class="aurl">example.org/article/</div></div>
+    <div class="acontent">
+      <div class="akicker">ARCHIVED WEBPAGE</div>
+      <div class="atitle">一篇值得留下的文章</div>
+      <div class="ap"></div><div class="ap"></div><div class="ap s"></div>
+      <div class="afig"></div>
+    </div>
+  </div>
+  <div class="plate">
+    <div><b>COLLECTION OBJECT</b><span>webpage-archiver</span></div>
+    <em>Markdown · PDF · HTML<br>offline / verified</em>
+  </div>
+</div>
+<div class="caption">PRESERVED FOR THE LONG TERM</div>
+<div class="vignette"></div>
+</html>
