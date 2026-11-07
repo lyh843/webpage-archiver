@@ -1,21 +1,75 @@
-# Python 缓存与本地环境
-__pycache__/
-*.py[cod]
-.venv/
-venv/
-.pytest_cache/
-.coverage
-htmlcov/
+# ===== 系统与编辑器 =====
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+.history/
 
-# 本地凭据与编辑器文件
+# ===== 本地凭据与环境 =====
 .env
 .env.*
 !.env.example
-.DS_Store
-.idea/
-.vscode/
+*.pem
+*.key
+secrets/
 
-# 本地归档产物（不要将第三方全文或个人文献库提交到仓库）
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+ENV/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+.tox/
+.nox/
+.hypothesis/
+*.egg-info/
+.eggs/
+/build/
+/sdist/
+/wheels/
+
+# ===== Node / 前端依赖与构建产物 =====
+node_modules/
+.npm/
+.pnpm-store/
+.yarn/
+.pnp.*
+.vite/
+dist/
+out/
+*.tsbuildinfo
+
+# Node 调试日志
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ===== 日志与临时文件 =====
+*.log
+tmp/
+temp/
+*.tmp
+
+# ===== 本地归档产物（不要将第三方全文或个人文献库提交到仓库） =====
 archives/
 output/
-dist/
+
+# ===== 宣传片工程：不提交渲染输出与混音中间文件 =====
+# 成片与封面位于 宣传片/网页归档工具宣传片/，需要随仓库分发，故不忽略
+宣传片/网页归档工具宣传片/工程/out/
+宣传片/网页归档工具宣传片/工程/audio-src/_*
+宣传片/网页归档工具宣传片/工程/public/audio/mix.wav

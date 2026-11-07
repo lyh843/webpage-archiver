@@ -1,0 +1,42 @@
+{
+  "fps": 60,
+  "width": 1920,
+  "height": 1080,
+  "duration": 45,
+  "beat": 0.6269,
+  "bar": 2.5078,
+  "drop": 10.33,
+  "musicOffset": 0,
+  "scenes": {
+    "open": [0, 5.016],
+    "break": [5.016, 10.033],
+    "brand": [10.033, 15.05],
+    "html": [15.05, 22.57],
+    "pdf": [22.57, 27.59],
+    "md": [27.59, 32.6],
+    "montage": [32.6, 37.62],
+    "cta": [37.62, 45]
+  },
+  "pace": {
+    "open": { "pin": 0.85 },
+    "html": { "step": 2.1 },
+    "montage": { "cut": 0.62 },
+    "cta": { "stamp": 43.1 }
+  },
+  "voice": {
+    "voiceId": "",
+    "model": "eleven_v4",
+    "sts": false,
+    "keywords": [],
+    "language": "zh",
+    "settings": {
+      "stability": 0.45,
+      "similarity_boost": 0.75,
+      "use_speaker_boost": true
+    },
+    "rmsDb": -13,
+    "duckDb": -9,
+    "gain": 1.0,
+    "lines": []
+  }
+}
